@@ -17,12 +17,12 @@ fn main() -> std::io::Result<()> {
     write!(header, "P3\n{} {}\n{}\n", NX, NY, MAX_COLOR);
     file.write_all(header.as_bytes())?;
 
+    let b = 0.2;
     let mut line = String::new();
     for j in (0..NY).rev() {
         for i in 0..NX {
             let r: f64 = i as f64 / NX as f64;
             let g: f64 = j as f64 / NY as f64;
-            let b = 0.2;
             let ir = (MAX_COLOR as f64 * r) as i32;
             let ig = (MAX_COLOR as f64 * g) as i32;
             let ib = (MAX_COLOR as f64 * b) as i32;
